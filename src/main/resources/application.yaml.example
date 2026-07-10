@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: weather-api-spring
+
+
+#openweather:
+  #url: insert ur provider url (es. https://api.openweathermap.org/data/2.5)
+  #api:
+    #key: insert ur apikey here
