@@ -2,6 +2,23 @@ spring:
   application:
     name: weather-api-spring
 
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+
+    hikari:
+      connection-init-sql: SET DB_CLOSE_DELAY -1
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
 
 openweather:
   url: ${OPENWEATHER_URL}
