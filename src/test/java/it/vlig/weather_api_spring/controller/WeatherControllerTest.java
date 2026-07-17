@@ -1,5 +1,6 @@
 package it.vlig.weather_api_spring.controller;
 
+import it.vlig.weather_api_spring.dto.WeatherQueryResponse;
 import it.vlig.weather_api_spring.dto.api.Main;
 import it.vlig.weather_api_spring.dto.api.WeatherDetail;
 import it.vlig.weather_api_spring.dto.api.WeatherResponse;
@@ -15,6 +16,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.Instant;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.*;
@@ -132,6 +134,23 @@ class WeatherControllerTest {
       .andExpect(status().isBadRequest());
 
     verify(weatherService, never()).getWeatherByCityAndUnit(any(), any());
+  }
+
+  @Test
+  void shouldGetHistoryByCity() throws Exception {
+    WeatherQueryResponse mockQueryResponse = new WeatherQueryResponse(
+      CITY, "Clear", UnitEnum.METRIC,
+      23.5, 23, 60,
+      Instant.parse("2026-07-17T14:00:00Z"));
+
+    when(weatherService.getHistoryByCity(eq(CITY)))
+      .thenReturn(List.of(mockQueryResponse));
+
+    mockMvc.perform(get(WEATHER_ENDPOINT+"/history")
+      .queryParam("city", CITY))
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$[0].city").value(CITY))
+      .andExpect(jsonPath("$[0].description").value("Clear"));
   }
 
 }
