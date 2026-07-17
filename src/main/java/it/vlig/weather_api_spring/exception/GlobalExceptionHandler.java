@@ -1,6 +1,6 @@
 package it.vlig.weather_api_spring.exception;
 
-import it.vlig.weather_api_spring.dto.ErrorResponse;
+import it.vlig.weather_api_spring.dto.error.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

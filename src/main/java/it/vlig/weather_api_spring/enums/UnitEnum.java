@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum UnitEnum {
   METRIC("metric"),
-  IMPERIAL("imperial");
+  IMPERIAL("imperial"),
+  KELVIN("kelvin");
 
   private final String value;
 
