@@ -1,9 +1,10 @@
 package it.vlig.weather_api_spring.service;
 
 import it.vlig.weather_api_spring.client.WeatherClient;
-import it.vlig.weather_api_spring.dto.Main;
-import it.vlig.weather_api_spring.dto.WeatherDetail;
-import it.vlig.weather_api_spring.dto.WeatherResponse;
+import it.vlig.weather_api_spring.dto.WeatherQueryResponse;
+import it.vlig.weather_api_spring.dto.api.Main;
+import it.vlig.weather_api_spring.dto.api.WeatherDetail;
+import it.vlig.weather_api_spring.dto.api.WeatherResponse;
 import it.vlig.weather_api_spring.entity.WeatherQuery;
 import it.vlig.weather_api_spring.enums.UnitEnum;
 import it.vlig.weather_api_spring.repository.WeatherRepository;
@@ -33,8 +34,11 @@ public class WeatherService {
     return response;
   }
 
-  public List<WeatherQuery> getHistoryByCity(String city) {
-    return repository.findByCityOrderByQueriedAtDesc(city);
+  public List<WeatherQueryResponse> getHistoryByCity(String city) {
+    return repository.findByCityOrderByQueriedAtDesc(city)
+      .stream()
+      .map(WeatherQueryResponse::fromEntity)
+      .toList();
   }
 
   private void saveHistory(WeatherResponse response, UnitEnum unit) {

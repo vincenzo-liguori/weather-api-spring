@@ -1,9 +1,9 @@
 package it.vlig.weather_api_spring;
 
 import it.vlig.weather_api_spring.client.WeatherClient;
-import it.vlig.weather_api_spring.dto.Main;
-import it.vlig.weather_api_spring.dto.WeatherDetail;
-import it.vlig.weather_api_spring.dto.WeatherResponse;
+import it.vlig.weather_api_spring.dto.api.Main;
+import it.vlig.weather_api_spring.dto.api.WeatherDetail;
+import it.vlig.weather_api_spring.dto.api.WeatherResponse;
 import it.vlig.weather_api_spring.enums.UnitEnum;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,8 @@
 package it.vlig.weather_api_spring.controller;
 
-import it.vlig.weather_api_spring.dto.Main;
-import it.vlig.weather_api_spring.dto.WeatherDetail;
-import it.vlig.weather_api_spring.dto.WeatherResponse;
+import it.vlig.weather_api_spring.dto.api.Main;
+import it.vlig.weather_api_spring.dto.api.WeatherDetail;
+import it.vlig.weather_api_spring.dto.api.WeatherResponse;
 import it.vlig.weather_api_spring.enums.UnitEnum;
 import it.vlig.weather_api_spring.exception.WeatherGenericException;
 import it.vlig.weather_api_spring.exception.WeatherNotFoundException;

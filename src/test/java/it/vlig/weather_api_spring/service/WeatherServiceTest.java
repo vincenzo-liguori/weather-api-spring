@@ -1,10 +1,11 @@
 package it.vlig.weather_api_spring.service;
 
 import it.vlig.weather_api_spring.client.WeatherClient;
-import it.vlig.weather_api_spring.dto.Main;
-import it.vlig.weather_api_spring.dto.WeatherDetail;
-import it.vlig.weather_api_spring.dto.WeatherResponse;
+import it.vlig.weather_api_spring.dto.api.Main;
+import it.vlig.weather_api_spring.dto.api.WeatherDetail;
+import it.vlig.weather_api_spring.dto.api.WeatherResponse;
 import it.vlig.weather_api_spring.enums.UnitEnum;
+import it.vlig.weather_api_spring.repository.WeatherRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -23,6 +24,8 @@ class WeatherServiceTest {
 
   @Mock
   private WeatherClient weatherClient;
+  @Mock
+  private WeatherRepository weatherRepository;
 
   @InjectMocks
   private WeatherService sut;

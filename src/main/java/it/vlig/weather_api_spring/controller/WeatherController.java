@@ -1,7 +1,7 @@
 package it.vlig.weather_api_spring.controller;
 
-import it.vlig.weather_api_spring.dto.WeatherResponse;
-import it.vlig.weather_api_spring.entity.WeatherQuery;
+import it.vlig.weather_api_spring.dto.WeatherQueryResponse;
+import it.vlig.weather_api_spring.dto.api.WeatherResponse;
 import it.vlig.weather_api_spring.enums.UnitEnum;
 import it.vlig.weather_api_spring.service.WeatherService;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +29,7 @@ public class WeatherController {
   }
 
   @GetMapping("/history")
-  public ResponseEntity<List<WeatherQuery>> getHistoryByCity(
+  public ResponseEntity<List<WeatherQueryResponse>> getHistoryByCity(
     @RequestParam String city) {
     return ResponseEntity.ok(service.getHistoryByCity(city));
   }
