@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class ApiKeyGeneratorTest {
 
-  private ApiKeyGenerator sut = new ApiKeyGenerator();
+  private final ApiKeyGenerator sut = new ApiKeyGenerator();
 
   @Test
   void shouldGenerateUniqueKeyOfExpectedLength() {
