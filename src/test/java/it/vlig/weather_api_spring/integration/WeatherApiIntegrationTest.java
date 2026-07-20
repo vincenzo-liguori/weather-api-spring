@@ -1,6 +1,6 @@
 package it.vlig.weather_api_spring.integration;
 
-import it.vlig.weather_api_spring.dto.api.WeatherResponse;
+import it.vlig.weather_api_spring.dto.weather_api.WeatherResponse;
 import it.vlig.weather_api_spring.enums.UnitEnum;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
