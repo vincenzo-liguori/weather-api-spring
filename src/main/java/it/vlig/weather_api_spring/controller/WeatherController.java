@@ -1,7 +1,7 @@
 package it.vlig.weather_api_spring.controller;
 
 import it.vlig.weather_api_spring.dto.WeatherQueryResponse;
-import it.vlig.weather_api_spring.dto.api.WeatherResponse;
+import it.vlig.weather_api_spring.dto.weather_api.WeatherResponse;
 import it.vlig.weather_api_spring.enums.UnitEnum;
 import it.vlig.weather_api_spring.service.WeatherService;
 import org.springframework.http.ResponseEntity;

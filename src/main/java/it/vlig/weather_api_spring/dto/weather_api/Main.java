@@ -1,4 +1,4 @@
-package it.vlig.weather_api_spring.dto.api;
+package it.vlig.weather_api_spring.dto.weather_api;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

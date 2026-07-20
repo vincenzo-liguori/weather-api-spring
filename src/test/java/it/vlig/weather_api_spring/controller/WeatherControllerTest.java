@@ -1,18 +1,21 @@
 package it.vlig.weather_api_spring.controller;
 
 import it.vlig.weather_api_spring.dto.WeatherQueryResponse;
-import it.vlig.weather_api_spring.dto.api.Main;
-import it.vlig.weather_api_spring.dto.api.WeatherDetail;
-import it.vlig.weather_api_spring.dto.api.WeatherResponse;
+import it.vlig.weather_api_spring.dto.weather_api.Main;
+import it.vlig.weather_api_spring.dto.weather_api.WeatherDetail;
+import it.vlig.weather_api_spring.dto.weather_api.WeatherResponse;
 import it.vlig.weather_api_spring.enums.UnitEnum;
 import it.vlig.weather_api_spring.exception.WeatherGenericException;
 import it.vlig.weather_api_spring.exception.WeatherNotFoundException;
 import it.vlig.weather_api_spring.exception.WeatherProviderAuthException;
 import it.vlig.weather_api_spring.exception.WeatherRateLimitException;
 import it.vlig.weather_api_spring.service.WeatherService;
+import it.vlig.weather_api_spring.util.ApiKeyAuthFilter;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -26,7 +29,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-@WebMvcTest(WeatherController.class)
+@WebMvcTest(value = WeatherController.class,
+  excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = ApiKeyAuthFilter.class))
 class WeatherControllerTest {
 
   private static final String CITY = "New York";
